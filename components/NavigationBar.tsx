@@ -8,20 +8,20 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   return (
-    <nav className="flex items-center nav_bar">
+    <nav className="flex items-center nav_bar px-8 py-4">
       <div className="flex items-center">
         <Link href="/">
           <Image src={NavLogo} alt="Logo" width={80} height={80} />
         </Link>
         <Link
           href="/roleplay"
-          className="text-white font-squada text-xl px-4 hov"
+          className="nav-link text-white font-squada text-xl px-4 hov transition duration-200"
         >
           Roleplay Prep
         </Link>
         <Link
           href="/about_us"
-          className="text-white font-squada text-xl px-4 hov"
+          className="nav-link text-white font-squada text-xl px-4 hov transition duration-200"
         >
           About Us
         </Link>

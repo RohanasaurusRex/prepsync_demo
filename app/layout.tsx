@@ -1,6 +1,8 @@
 import "@styles/globals.css";
 import Nav from "@components/NavigationBar";
 import Home from "./page";
+import Footer from "@components/Footer";
+
 export const metadata = {
   title: "Prep Sync AI",
   description: "Discover your inner DECA Wiz.",
@@ -9,12 +11,15 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body>
-        <div>
+      <body className="bg-gray-100 font-inter">
+        <div className="min-h-screen flex flex-col">
           <Nav />
+          <main className="flex-1 p-6">{children}</main>
         </div>
-        <main>{children}</main>
       </body>
+      <footer>
+        <Footer />
+      </footer>
     </html>
   );
 };

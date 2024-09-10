@@ -1,10 +1,10 @@
-const page = () => {
+const RoleplayPage = () => {
   return (
-    <section className="w-full max-w-full flex-start flex-col">
-      <h1 className="font-electrolize mt-5 text-5xl font-extrabold">
-        <span>Roleplay</span>
+    <section className="w-full max-w-4xl mx-auto flex flex-col items-start py-10">
+      <h1 className="font-electrolize text-5xl font-extrabold text-gray-800 mb-6">
+        Roleplay
       </h1>
-      <p className="font-squada pt-5 ml-10 mr-5">
+      <p className="font-squada text-lg leading-relaxed text-gray-700 mb-6">
         The RolePlay feature in Prep Sync AI is a sophisticated tool designed to
         simulate real-world business scenarios, allowing users to practice and
         improve their performance in DECA competitions. This feature enables
@@ -17,13 +17,11 @@ const page = () => {
         prepare for the actual DECA events, making the RolePlay feature an
         invaluable resource for serious competitors.
       </p>
-      <div className="items-center">
-        <button className="text-white font-bold py-2 px-4 rounded font-electrolize mt-5 but">
-          Generate Roleplay
-        </button>
-      </div>
+      <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full transition duration-200">
+        Generate Roleplay
+      </button>
     </section>
   );
 };
 
-export default page;
+export default RoleplayPage;
