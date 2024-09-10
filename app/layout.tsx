@@ -1,26 +1,19 @@
 import "@styles/globals.css";
-import { title } from "process";
-import { Children } from "react";
-import Nav from "@components/Nav";
-import Provider from "@components/Provider";
+import Nav from "@components/NavigationBar";
+import Home from "./page";
 export const metadata = {
-  title: "Promptopia",
-  description: "Discover & Share AI Prompts",
+  title: "Prep Sync AI",
+  description: "Discover your inner DECA Wiz.",
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body>
-        <Provider>
-          <div className="main">
-            <div className="gradient" />
-          </div>
-          <main className="app">
-            <Nav />
-            {children}
-          </main>
-        </Provider>
+        <div>
+          <Nav />
+        </div>
+        <main>{children}</main>
       </body>
     </html>
   );
