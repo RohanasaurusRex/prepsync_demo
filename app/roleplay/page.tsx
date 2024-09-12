@@ -1,3 +1,5 @@
+"use client";
+
 const RoleplayPage = () => {
   return (
     <section className="w-full max-w-4xl mx-auto flex flex-col items-start py-10">

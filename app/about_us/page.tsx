@@ -5,11 +5,10 @@ const AboutUs = () => {
         Meet the Team Behind Prep Sync AI
       </h1>
       <p className="text-lg leading-relaxed text-gray-700 mb-4 font-squada">
-        We are Vivaan and Rohan, two passionate high school students from
-        Sycamore High School, where we are in the junior and senior classes,
-        respectively. With a shared interest in both programming and business,
-        we've combined our skills to create Prep Sync AI, a platform designed to
-        help DECA participants excel in their role-play events.
+        We are Vivaan and Rohan, two passionate high school students; with a
+        shared interest in both programming and business, we've combined our
+        skills to create Prep Sync AI, a platform designed to help DECA
+        participants excel in their role-play events.
       </p>
       <p className="text-lg leading-relaxed text-gray-700 mb-4 font-squada">
         Our programming journey started with Python and Java, where we've

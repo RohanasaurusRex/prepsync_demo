@@ -17,9 +17,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <main className="flex-1 p-6">{children}</main>
         </div>
       </body>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer></Footer>
     </html>
   );
 };

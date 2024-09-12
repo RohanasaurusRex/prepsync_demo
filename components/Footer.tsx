@@ -5,6 +5,7 @@ const Footer = () => {
         <p>
           &copy; {new Date().getFullYear()} Prep Sync AI. All rights reserved.
         </p>
+        <p className="pt-3">This is in no way associated with DECA Inc.</p>
       </div>
     </footer>
   );
