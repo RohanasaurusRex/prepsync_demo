@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import DECA_Logo from "../public/assets/static/images/deca_logo.png";
+import Dropdown from "@components/Dropdown";
 
 const HomePage = () => {
   return (
@@ -37,6 +38,7 @@ const HomePage = () => {
             Explore Features
           </Link>
         </div>
+        <Dropdown />
       </main>
     </div>
   );
