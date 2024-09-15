@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  width: 100vw;
+  position: fixed;
+  display: flex;
+  background-color: hsla(260, 100%, 14%, 0.856);
+}
+.nav_bar{
+  display: flex;
+  width: 10000px;
+  justify-content: space-between;
+  background-color: hsl(260, 100%, 10.5%);
+}
+.hov:hover{
+background: hsla(260, 100%, 22%, 0.945);
+color: rgb(197, 197, 197);
+border-color: hsla(260, 100%, 31%, 0.692);
+border-width: 3px;
+border-radius: 5px;
+}
+.head{
+  text-align: left;
+  font-weight: 800;
+}
+.but{
+  background-color: hsl(260, 100%, 17%);
+  color: white;
+  border-radius: 30px;
+  text-align: center;}
+.but:hover{
+  background-color: hsl(260, 100%, 14%);
+  color: slategrey;
+
+}
