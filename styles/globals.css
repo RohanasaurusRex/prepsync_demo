@@ -33,9 +33,18 @@ border-radius: 5px;
   background-color: hsl(260, 100%, 17%);
   color: white;
   border-radius: 30px;
-  text-align: center;}
+  text-align: center;
+}
 .but:hover{
   background-color: hsl(260, 100%, 14%);
   color: slategrey;
+}
+.dropdown:active{
+  border-color: hsl(260, 100%, 19%);
+  color:hsl(260, 100%, 22%);
+}
+.dropdown_list:hover{
+  border-left-color: hsl(260, 100%, 22%);
+  border-left: 4px;
 
 }

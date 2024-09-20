@@ -16,8 +16,8 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <Nav />
           <main className="">{children}</main>
         </div>
+        <Footer></Footer>
       </body>
-      <Footer></Footer>
     </html>
   );
 };
