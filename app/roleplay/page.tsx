@@ -32,11 +32,6 @@ const RoleplayPage = () => {
       setResponse("An error occurred while processing your request.");
     }
   };
-  const callKey = async () => {
-    console.log(process.env.OPENAI_KEY);
-    console.log(process.env.NEXT_PUBLIC_OPENAI_API_KEY);
-    console.log("trying to print smth.");
-  };
   return (
     <section className="w-full max-w-4xl mx-auto flex flex-col items-start py-10">
       <h1 className="font-electrolize text-5xl font-extrabold text-gray-800 mb-6">
@@ -47,12 +42,6 @@ const RoleplayPage = () => {
         simulate real-world business scenarios, allowing users to practice and
         improve their performance in DECA competitions...
       </p>
-      <button
-        onClick={callKey}
-        className="bg-purple-800 hover:bg-indigo-900 text-white font-bold py-3 px-6 my-3 rounded-full transition duration-200"
-      >
-        API KEY
-      </button>
       <textarea
         value={query}
         onChange={handleChange}
