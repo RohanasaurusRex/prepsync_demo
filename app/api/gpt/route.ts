@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini", // Adjust as needed
       messages: [{ role: "user", content: prompt }],
-      max_tokens: 20,
+      max_tokens: 300,
     });
 
     const responseText = completion.choices[0].message.content;

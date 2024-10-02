@@ -4,9 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import NavLogo from "../public/assets/static/images/LogoNoWords.ico";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 const Nav = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const { data: session } = useSession();
 
   const handleLogIn = () => {
     setLoggedIn(true);

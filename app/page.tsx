@@ -25,13 +25,13 @@ const HomePage = () => {
         </p>
         <div className="flex flex-col md:flex-row md:space-x-4">
           <Link
-            href="/"
+            href="/roleplay"
             className="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 mb-4 md:mb-0"
           >
             Get Started
           </Link>
           <Link
-            href="/"
+            href="/roleplay"
             className="bg-gray-800 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300"
           >
             Explore Features

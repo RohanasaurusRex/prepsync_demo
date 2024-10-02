@@ -4,10 +4,11 @@ import { AiOutlineCaretUp, AiOutlineCaretDown } from "react-icons/ai";
 interface DropdownProps {
   list: string[];
   question: string;
+  onSelect: (item: string) => void;
   // onSelect: (item: string) => string; // New prop for handling the selection
 }
 
-const Dropdown = ({ list, question }: DropdownProps) => {
+const Dropdown = ({ list, question, onSelect }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string>(question); // State for selected item
   const [dropdownList, setDropdownList] = useState<string[]>(list);
@@ -22,7 +23,7 @@ const Dropdown = ({ list, question }: DropdownProps) => {
   }, [list]); // Ensure this runs whenever the `list` prop changes
 
   return (
-    <div className="relative flex flex-col items-center w-[340px] h-[340px] rounded-lg m-5">
+    <div className="relative flex flex-col items-center rounded-lg m-5">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className="bg-gray-200 p-4 w-full flex items-center justify-between font-bold text-lg rounded-lg tracking-wider border-4 border-transparent dropdown"
@@ -42,6 +43,7 @@ const Dropdown = ({ list, question }: DropdownProps) => {
               onClick={() => {
                 setSelectedItem(item); // Set the clicked item as the selected item
                 setIsOpen(false); // Close the dropdown
+                onSelect(item);
               }}
               className="flex w-full justify-between hover:bg-gray-400 cursor-pointer p-4 rounded-r-lg border-l-transparent hover:border-l-purple-800 border-l-8"
             >
