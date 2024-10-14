@@ -5,7 +5,6 @@ interface DropdownProps {
   list: string[];
   question: string;
   onSelect: (item: string) => void;
-  // onSelect: (item: string) => string; // New prop for handling the selection
 }
 
 const Dropdown = ({ list, question, onSelect }: DropdownProps) => {
@@ -26,7 +25,11 @@ const Dropdown = ({ list, question, onSelect }: DropdownProps) => {
     <div className="relative flex flex-col items-center rounded-lg m-5">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="bg-gray-200 p-4 w-full flex items-center justify-between font-bold text-lg rounded-lg tracking-wider border-4 border-transparent dropdown"
+        className="p-4 flex items-center justify-between font-bold text-lg rounded-lg tracking-wider border-4 border-transparent mx-2 text-white w-full"
+        style={{
+          backgroundColor: "hsla(260, 100%, 17%, 0.3)",
+          minWidth: "250px", // Set a minimum width for the button
+        }}
       >
         {selectedItem !== "" ? selectedItem : question}
         {!isOpen ? (
@@ -35,8 +38,17 @@ const Dropdown = ({ list, question, onSelect }: DropdownProps) => {
           <AiOutlineCaretUp className="h-8" />
         )}
       </button>
+
       {isOpen && (
-        <div className="bg-gray-200 absolute top-20 flex flex-col items-start rounded-lg p-2 w-full">
+        <div
+          className="flex flex-col items-start rounded-lg p-2 w-full mt-2 transition-all duration-300 ease-in-out"
+          style={{
+            backgroundColor: "hsla(260, 100%, 17%, 0.3)", // Transparent purple background
+            maxHeight: "200px", // Limit the height
+            overflowY: "auto", // Enable scroll when the max height is reached
+            minWidth: "250px", // Set a minimum width for the dropdown list
+          }}
+        >
           {dropdownList.map((item: string, index: number) => (
             <div
               key={index}
@@ -47,7 +59,9 @@ const Dropdown = ({ list, question, onSelect }: DropdownProps) => {
               }}
               className="flex w-full justify-between hover:bg-gray-400 cursor-pointer p-4 rounded-r-lg border-l-transparent hover:border-l-purple-800 border-l-8"
             >
-              <h3 className="font-electrolize font-bold text-l">{item}</h3>
+              <h3 className="font-electrolize font-bold text-l text-white">
+                {item}
+              </h3>
             </div>
           ))}
         </div>

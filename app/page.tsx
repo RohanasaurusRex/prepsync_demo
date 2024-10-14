@@ -1,40 +1,50 @@
-import Head from "next/head";
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import DECA_Logo from "../public/assets/static/images/deca_logo.png";
+import { useSession, signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const HomePage = () => {
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  // Handle Get Started click
+  const handleGetStartedClick = async () => {
+    if (session) {
+      // Redirect to the roleplay page if signed in
+      router.push("/roleplay");
+    } else {
+      // Redirect to the sign-in page if not signed in
+      await signIn(undefined, { callbackUrl: "/roleplay" }); // Adjust the path as necessary
+    }
+  };
+
   return (
-    <div className="bg-gray-50 min-h-screen relative flex flex-col">
-      <Image
-        src={DECA_Logo}
-        alt="DECA Logo Background"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-        className="z-0"
-      />
+    <div>
       <main className="flex-grow flex flex-col justify-center items-center text-center px-4 py-16 relative z-10">
-        <h2 className="text-4xl font-extrabold text-white mb-6 bg-black bg-opacity-60 p-4 rounded">
+        <h2 className="text-4xl font-extrabold font-electrolize text-white mb-6 bg-opacity-60 p-4 rounded">
           Empowering Your DECA Journey
         </h2>
-        <p className="text-lg text-white mb-8 max-w-3xl bg-black bg-opacity-60 p-4 rounded">
-          Prep Sync AI is your ultimate tool for excelling in DECA roleplay
-          events. Practice with interactive scenarios and receive tailored
-          feedback to boost your performance.
+        <p className="text-lg font-electrolize text-white mb-8 max-w-3xl bg-opacity-60 p-4 rounded">
+          Prep Sync AI revolutionizes the way you prepare for DECA roleplay
+          events. Dive into dynamic, real-world business scenarios tailored to
+          challenge and sharpen your skills. With interactive roleplays, instant
+          feedback, and a customized learning path, you'll be empowered to
+          elevate your performance and gain the competitive edge needed to
+          succeed.
         </p>
         <div className="flex flex-col md:flex-row md:space-x-4">
-          <Link
-            href="/roleplay"
-            className="bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 mb-4 md:mb-0"
+          <button
+            onClick={handleGetStartedClick}
+            className="bg-blue-600 font-squada text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 mb-4 md:mb-0"
           >
             Get Started
-          </Link>
+          </button>
           <Link
-            href="/roleplay"
-            className="bg-gray-800 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300"
+            href="/about_us"
+            className="bg-gray-800 font-squada text-white py-3 px-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300"
           >
-            Explore Features
+            Get To Know Us
           </Link>
         </div>
       </main>

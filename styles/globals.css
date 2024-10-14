@@ -6,6 +6,96 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 1s ease-in-out;
+}
+.transition-opacity {
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; /* Matches duration in JSX */
+}
+
+.opacity-0 {
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; /* Matches duration in JSX */
+}
+
+.opacity-100 {
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out; /* Matches duration in JSX */
+}
+
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 1s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s ease-in-out;
+}
+
+body {
+  background: linear-gradient(to right, hsl(258, 100%, 8%), black, hsl(258, 100%, 8%));
+  /* Additional styling */
+  margin: 0; /* Ensure no default margin */
+  height: 100vh; /* Ensure the body takes full height */
+}
+
+/* Ensure the dropdowns appear above other content */
+.dropdown-menu {
+  z-index: 10; /* Adjust as needed to ensure it stays above the button */
+}
+
+/* Fix any button positioning */
+button {
+  z-index: 5;
+}
+.animate-slide-up {
+  animation: slide-up 0.7s ease-out;
+}
 .main {
   width: 100vw;
   position: fixed;
