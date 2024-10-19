@@ -9,6 +9,7 @@ const RoleplayPage = () => {
   const { data: session, status } = useSession(); // Track user session
 
   const [query, setQuery] = useState("");
+  const [currentStage, setCurrentStage] = useState(1);
   const [response, setResponse] = useState("");
   const [selectedEvent, setSelectedEvent] = useState<string>("");
   const [selectedInstructionalArea, setSelectedInstructionalArea] =
@@ -87,6 +88,33 @@ const RoleplayPage = () => {
 
   const handleClick = () => {
     addPrompt();
+  };
+
+  useEffect(() => {
+    if (session) {
+      fetch('/api/sessionData')
+        .then((res) => res.json())
+        .then((data) => {
+          setCurrentStage(data.progress.stage);
+        });
+    }
+  }, [session]);
+
+
+  const saveProgress = (stage: number) => {
+    if (session) {
+      fetch('/api/sessionData', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ stage }),
+      });
+    }
+  };
+
+  const handleNextStage = () => {
+    const newStage = currentStage + 1;
+    setCurrentStage(newStage);
+    saveProgress(newStage); // Save the progress
   };
 
   // If the session is still loading, show a loading message
