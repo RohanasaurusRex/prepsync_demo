@@ -9,7 +9,6 @@ const RoleplayPage = () => {
   const { data: session, status } = useSession(); // Track user session
 
   const [query, setQuery] = useState("");
-  const [currentStage, setCurrentStage] = useState(1);
   const [response, setResponse] = useState("");
   const [selectedEvent, setSelectedEvent] = useState<string>("");
   const [selectedInstructionalArea, setSelectedInstructionalArea] =
@@ -42,9 +41,7 @@ const RoleplayPage = () => {
     const lenInstructionalArea = selectedInstructionalArea.length >= 5;
     if (lenEvent && lenInstructionalArea) {
       setQuery(
-        `Can you create a sample DECA roleplay that directly mimics one of a real competition roleplay? 
-        It should include performance indicators and a 3+ paragraph scenario section. 
-        It should be on ${selectedEvent}. The instructional area needs to be: ${selectedInstructionalArea}.`
+        "Can you create a sample DECA roleplay scenario that directly mimics one of a real competition roleplay? It should include performance indicators and a 3+ paragraph scenario section. It should be on ${selectedEvent}. The instructional area needs to be: ${selectedInstructionalArea}. Make sure it includes all of the necessary components"
       );
       setCanOutput(true);
     } else {
@@ -52,7 +49,7 @@ const RoleplayPage = () => {
       setCanOutput(false);
     }
   };
-
+  
   useEffect(() => {
     if (query !== "" && canOutput) {
       callAPI();
@@ -90,17 +87,23 @@ const RoleplayPage = () => {
     addPrompt();
   };
 
+  /*
   useEffect(() => {
     if (session) {
+      console.log("There is a session");
       fetch('/api/sessionData')
         .then((res) => res.json())
         .then((data) => {
           setCurrentStage(data.progress.stage);
         });
     }
+    else {
+      console.log("There is no session");
+    }
   }, [session]);
+  */
 
-
+  /*
   const saveProgress = (stage: number) => {
     if (session) {
       fetch('/api/sessionData', {
@@ -110,18 +113,22 @@ const RoleplayPage = () => {
       });
     }
   };
+  */
 
+  /*
   const handleNextStage = () => {
     const newStage = currentStage + 1;
     setCurrentStage(newStage);
     saveProgress(newStage); // Save the progress
   };
 
+  */
   // If the session is still loading, show a loading message
   if (status === "loading") {
     return <p className="text-white text-center">Loading...</p>;
   }
 
+  /*
   // If no user is signed in, show a message
   if (!session) {
     return (
@@ -130,6 +137,7 @@ const RoleplayPage = () => {
       </p>
     );
   }
+    */
 
   return (
     <section className="w-full max-w-4xl mx-auto flex flex-col items-start py-10">
@@ -188,6 +196,7 @@ const RoleplayPage = () => {
           />
         </div>
       </div>
+      
       <button
         onClick={handleClick}
         className={`bg-purple-800 hover:bg-indigo-900 text-white font-bold py-3 px-6 my-3 rounded-full transition duration-200 ${
@@ -204,6 +213,7 @@ const RoleplayPage = () => {
           <h2 className="font-bold text-lg mb-2">Response:</h2>
           <ReactMarkdown>{response}</ReactMarkdown>
         </div>
+        
       )}
     </section>
   );
