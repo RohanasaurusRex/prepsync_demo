@@ -34,12 +34,13 @@ const HomePage = () => {
           succeed.
         </p>
         <div className="flex flex-col md:flex-row md:space-x-4">
-          <button
-            onClick={handleGetStartedClick}
+        <Link
+            href="/roleplay"
             className="bg-blue-600 font-squada text-white py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition duration-300 mb-4 md:mb-0"
           >
             Get Started
-          </button>
+            </Link>
+          
           <Link
             href="/about_us"
             className="bg-gray-800 font-squada text-white py-3 px-6 rounded-lg shadow-lg hover:bg-gray-700 transition duration-300"

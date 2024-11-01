@@ -58,44 +58,6 @@ const Nav = () => {
           About Us
         </Link>
       </div>
-
-      <div className="ml-auto flex items-center">
-        {status === "loading" ? (
-          <p className="text-white">Loading...</p>
-        ) : session ? (
-          <>
-            <div className="w-12 h-12 rounded-full border-2 border-white overflow-hidden mr-4">
-              <Image
-                src={session?.user?.image as string}
-                alt="Profile Picture"
-                width={48}
-                height={48}
-                className="object-cover"
-              />
-            </div>
-            <span className="text-white mr-4 font-squada">
-              {session.user?.name}
-            </span>
-            <button
-              onClick={handleSignOut}
-              className={`bg-white text-black px-4 py-2 rounded-md font-squada hover:bg-gray-300 transition duration-200 ${
-                loading ? "animate-pulse" : ""
-              }`}
-            >
-              Log Out
-            </button>
-          </>
-        ) : (
-          <button
-            onClick={handleSignIn}
-            className={`bg-white text-black px-4 py-2 rounded-md font-squada hover:bg-gray-300 transition duration-200 ${
-              loading ? "animate-pulse" : ""
-            }`}
-          >
-            Sign In / Sign Up
-          </button>
-        )}
-      </div>
     </nav>
   );
 };

@@ -32,6 +32,7 @@ const SignIn = () => {
 
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
 
+        
         {/* OAuth Buttons */}
         <div className="flex flex-col space-y-4 mb-6">
           <button
